@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MeetingView: View {
+struct MeetingView: View { // aka contextView
     var body: some View {
         VStack {
             ProgressView(value: 5, total: 15)
@@ -23,6 +23,9 @@ struct MeetingView: View {
                         .font(.caption)
                     Label("600", systemImage: "hourglass.bottomhalf.fill")
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Time remaining")
+                .accessibilityValue("10 minutes")
             }
             Circle()
                 .strokeBorder(lineWidth: 24)
@@ -32,6 +35,7 @@ struct MeetingView: View {
                 Button(action: {}) {
                     Image(systemName: "forward.fill")
                 }
+                .accessibilityLabel("Next speaker") //it's read as "next speaker button" by voiceover
             }
         }
         .padding()
