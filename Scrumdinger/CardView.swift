@@ -18,7 +18,7 @@ struct CardView: View {
                 Label("\(scrum.attendees.count)", systemImage: "person.3")
                 Spacer()
                 Label("\(scrum.lengthInMinutes)", systemImage: "clock")
-                    .labelStyle(.trailingIcon) //from what we've created with "static"
+                    .labelStyle(.trailingIcon) //from what we've created with "static" - mirror the number of attendees
             }
             .font(.caption)
         }
