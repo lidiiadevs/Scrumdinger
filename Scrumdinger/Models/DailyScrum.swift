@@ -34,4 +34,8 @@ extension DailyScrum {
             self.name = name
         }
     }
+    
+    static var emptyScrum: DailyScrum {
+        DailyScrum(title: "", attendees:  [], lengthInMinutes: 5, theme: .sky)
+    }
 }
