@@ -41,6 +41,7 @@ struct DetailView: View {
                 }
             }
         }
+        .navigationTitle(scrum.title)
     }
 }
 
