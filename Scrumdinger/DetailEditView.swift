@@ -40,6 +40,7 @@ struct DetailEditView: View {
                     }) {
                         Image(systemName: "plus.circle.fill")
                     }
+                    .disabled(attendeeName.isEmpty) //this modifier prevents users from mistakenly saving an attendee without a name. The button activates when the user starts typing a name in the text field.
                 }
             }
         }
