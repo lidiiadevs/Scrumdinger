@@ -50,7 +50,10 @@ struct DetailView: View {
             }
         }
         .sheet(isPresented: $isPresentingEditingView) {
-            DetailEditView()
+            NavigationStack {
+                DetailEditView()
+                    .navigationTitle(scrum.title)
+            }
         }
     }
 }
