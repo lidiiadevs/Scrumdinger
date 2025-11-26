@@ -59,6 +59,11 @@ struct DetailView: View {
                                 isPresentingEditingView = false
                             }
                         }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") {
+                                isPresentingEditingView = false
+                            }
+                        }
                     }
             }
         }
