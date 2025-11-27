@@ -8,7 +8,7 @@
 import SwiftUI
 import ThemeKit
 
-struct ThemeView: View { //You’ll use this theme view as a cell in a list to display all the themes to the user.
+struct ThemeView: View { // as a cell in a list to display all the themes
     let theme: Theme
     
     var body: some View {
