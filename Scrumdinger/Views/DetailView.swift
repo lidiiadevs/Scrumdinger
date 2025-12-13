@@ -53,21 +53,23 @@ struct DetailView: View {
         }
         .sheet(isPresented: $isPresentingEditingView) {
             NavigationStack {
-                DetailEditView(scrum: $editingScrum)
+                DetailEditView(scrum: $editingScrum, saveEdits: {
+                    DailyScrum in scrum = editingScrum
+                })
                     .navigationTitle(scrum.title)
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                isPresentingEditingView = false
-                            }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Done") {
-                                isPresentingEditingView = false
-                                scrum = editingScrum
-                            }
-                        }
-                    }
+//                    .toolbar {
+//                        ToolbarItem(placement: .cancellationAction) {
+//                            Button("Cancel") {
+//                                isPresentingEditingView = false
+//                            }
+//                        }
+//                        ToolbarItem(placement: .confirmationAction) {
+//                            Button("Done") {
+//                                isPresentingEditingView = false
+//                                scrum = editingScrum
+//                            }
+//                        }
+//                    }
             }
         }
     }

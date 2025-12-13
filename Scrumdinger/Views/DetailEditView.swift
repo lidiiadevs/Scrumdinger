@@ -9,7 +9,10 @@ import SwiftUI
 
 struct DetailEditView: View {
     @Binding var scrum: DailyScrum
+    let saveEdits: (DailyScrum) -> Void //saveEdits closure runs when a user taps the Done button
+    
     @State private var attendeeName = ""
+    @Environment(\.dismiss) private var dismiss //lets a view read shared settings from its surroundings, instead of being passed data manually.
     
     var body: some View {
         Form{
@@ -48,10 +51,23 @@ struct DetailEditView: View {
                 }
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Cancel") {
+                    dismiss()
+                }
+            }
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Done") {
+                    saveEdits(scrum)
+                    dismiss()
+                }
+            }
+        }
     }
 }
 
 #Preview {
     @Previewable @State var scrum = DailyScrum.sampleData[0] //you can type, move sliders, toggle switches, etc., and the preview keeps the updated value while you work.
-    DetailEditView(scrum: $scrum)
+    DetailEditView(scrum: $scrum, saveEdits: { _ in })
 }
