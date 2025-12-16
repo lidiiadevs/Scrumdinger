@@ -12,7 +12,7 @@ struct DetailEditView: View {
     let saveEdits: (DailyScrum) -> Void //saveEdits closure runs when a user taps the Done button
     
     @State private var attendeeName = ""
-    @Environment(\.dismiss) private var dismiss //lets a view read shared settings from its surroundings, instead of being passed data manually.
+    @Environment(\.dismiss) private var dismiss //lets a view read shared settings from its surroundings, instead of being passed data manually. When you call the instance, the system performs the dismissal of the edit view.
     
     var body: some View {
         Form{

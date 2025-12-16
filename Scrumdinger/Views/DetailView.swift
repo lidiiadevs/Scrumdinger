@@ -53,8 +53,8 @@ struct DetailView: View {
         }
         .sheet(isPresented: $isPresentingEditingView) {
             NavigationStack {
-                DetailEditView(scrum: $editingScrum, saveEdits: {
-                    DailyScrum in scrum = editingScrum
+                DetailEditView(scrum: $editingScrum, saveEdits: { dailyScrum in
+                    scrum = editingScrum
                 })
                     .navigationTitle(scrum.title)
 //                    .toolbar {
