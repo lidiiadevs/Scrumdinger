@@ -15,6 +15,7 @@ struct MeetingView: View { // aka contextView
     
     private let player = AVPlayer.dingPlayer()
     
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16.0)
@@ -34,9 +35,7 @@ struct MeetingView: View { // aka contextView
             startScrum()
         }
         .onDisappear {
-            scrumTimer.stopScrum()
-            let newHistory = History(attendees: scrum.attendees)
-            scrum.history.insert(newHistory, at: 0)
+            endScrum()
         }
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -48,6 +47,12 @@ struct MeetingView: View { // aka contextView
             player.play()
         }
         scrumTimer.startScrum()
+    }
+    
+    private func endScrum() {
+        scrumTimer.stopScrum()
+        let newHistory = History(attendees: scrum.attendees)
+        scrum.history.insert(newHistory, at: 0)
     }
 }
 
